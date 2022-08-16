@@ -1,6 +1,7 @@
 # Venta
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+Sales system practice, developed frontend in Angular version 14.1.2. 
+Backend API in .NET CORE 6 C# Visual Studio 2022, using Entity Framework and SQL Server 2022 with docker. Repositorio https://github.com/alessparedes/WSVenta
 
 ## Development server
 
