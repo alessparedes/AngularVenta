@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiclienteService } from '../services/apicliente.service';
+import { Response } from '../models/response';
 
 @Component({
   selector: 'app-cliente',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public lst: any;
+  public columnas: string [] = ['id', 'nombre'];
+  constructor(private apiCliente: ApiclienteService) {
+    console.log("Cliente");
   }
 
+  ngOnInit(): void {
+    this.getClientes();
+  }
+
+  getClientes(){
+    this.apiCliente.getClientes().subscribe( response => {
+      this.lst = response.data;
+      console.log(this.lst);
+    } );
+  }
 }
