@@ -17,7 +17,7 @@ export class DialogClienteComponent{
     }
 
     addCliente() {
-        const cliente: Cliente = { nombre: 'Patito'}
+        const cliente: Cliente = { name: 'Patito'}
         this.apiCliente.add(cliente).subscribe(response =>{
             if(response.exito === 1){
                 this.dialogRef.close();

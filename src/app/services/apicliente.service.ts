@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente } from '../models/cliente';
 import { Response } from '../models/response';
@@ -7,7 +7,7 @@ import { Response } from '../models/response';
 
 const httpOption = {
   headers: new HttpHeaders({
-    'Contend-type': 'application/json'
+    'Content-Type': 'application/json'
   })
 };
 
