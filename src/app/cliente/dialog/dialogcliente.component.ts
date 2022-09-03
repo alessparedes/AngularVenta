@@ -8,8 +8,12 @@ import { ApiclienteService } from "src/app/services/apicliente.service";
     templateUrl: 'dialogcliente.component.html'
 })
 export class DialogClienteComponent{
-    constructor(public dialogRef: MatDialogRef<DialogClienteComponent>, public apiCliente: ApiclienteService, public snackBar: MatSnackBar){
+    public name: string;
 
+    constructor(public dialogRef: MatDialogRef<DialogClienteComponent>, 
+                public apiCliente: ApiclienteService, 
+                public snackBar: MatSnackBar){
+                    this.name = "";
     }
 
     close() {
@@ -17,7 +21,7 @@ export class DialogClienteComponent{
     }
 
     addCliente() {
-        const cliente: Cliente = { name: 'Patito'}
+        const cliente: Cliente = { name: this.name}
         this.apiCliente.add(cliente).subscribe(response =>{
             if(response.exito === 1){
                 this.dialogRef.close();
