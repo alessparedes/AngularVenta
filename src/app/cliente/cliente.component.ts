@@ -3,6 +3,9 @@ import { ApiclienteService } from '../services/apicliente.service';
 import { Response } from '../models/response';
 import { DialogClienteComponent } from './dialog/dialogcliente.component';
 import { MatDialog } from '@angular/material/dialog';
+import {Cliente} from "../models/cliente";
+import {DialogdeleteComponent} from "../Common/dialogdelete/dialogdelete.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -13,9 +16,13 @@ import { MatDialog } from '@angular/material/dialog';
 export class ClienteComponent implements OnInit {
 
   public lst: any;
-  public columnas: string [] = ['id', 'nombre'];
-  constructor(private apiCliente: ApiclienteService, public dialog: MatDialog) {
-    
+  public columnas: string [] = ['id', 'nombre', 'Acciones'];
+  readonly width: string = '600';
+
+  constructor(private apiCliente: ApiclienteService,
+              public dialog: MatDialog,
+              public snackbar: MatSnackBar) {
+
   }
 
   ngOnInit(): void {
@@ -31,10 +38,38 @@ export class ClienteComponent implements OnInit {
 
   openAdd(){
     const dialogRef = this.dialog.open(DialogClienteComponent, {
-      width: '600'
+      width: this.width
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getClientes();
+    });
+  }
+
+  openEdit(cliente: Cliente) {
+    const dialogRef = this.dialog.open(DialogClienteComponent, {
+      width: this.width,
+      data: cliente
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getClientes();
+    });
+  }
+
+  delete(cliente: Cliente) {
+    const dialogRef = this.dialog.open(DialogdeleteComponent, {
+      width: this.width
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.apiCliente.delete(cliente.id).subscribe(response => {
+          if (response.exito === 1) {
+            this.snackbar.open('Cliente eleminado con exito', '', {
+              duration: 2000,
+            })
+            this.getClientes();
+          }
+        })
+      }
     });
   }
 }
