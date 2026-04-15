@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component';
+import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component
     AppComponent,
     HomeComponent,
     ClienteComponent,
-    DialogClienteComponent
+    DialogClienteComponent,
+    DialogdeleteComponent
   ],
   imports: [
     BrowserModule,
