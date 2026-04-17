@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from "@angular/material/card";
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component
     AppComponent,
     HomeComponent,
     ClienteComponent,
-    DialogClienteComponent
+    DialogClienteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatCardModule,
     HttpClientModule,
     FormsModule
   ],
