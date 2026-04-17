@@ -14,12 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from "@angular/material/card";
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component';
+import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.component';
 import { LoginComponent } from './login/login.component';
+import {JwtInterceptor} from "./security/jwt.interceptor";
+
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     ClienteComponent,
     DialogClienteComponent,
-    LoginComponent
+    LoginComponent,
+    DialogdeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,11 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

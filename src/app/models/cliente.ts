@@ -1,3 +1,4 @@
 export interface Cliente{
-    name: string;
+  id: number;
+  nombre: string;
 }

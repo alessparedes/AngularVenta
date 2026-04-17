@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {ApiauthService} from "../services/apiauth.service";
-import {FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,15 +12,22 @@ export class LoginComponent implements OnInit {
   public email: string = "";
   public password: string = "";
 
-  constructor(public apiauth: ApiauthService) { }
+  constructor(public apiauth: ApiauthService, private router: Router) {
+    if (this.apiauth.usuarioData) {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.apiauth.login(this.email, this.password).subscribe(Response =>
+    this.apiauth.login(this.email, this.password).subscribe(response =>
     {
-      console.log(Response);
+      if (response.exito === 1) {
+        this.router.navigate(['/']);
+      }
+      console.log(response);
     })
   }
 }
