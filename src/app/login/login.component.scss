@@ -1,0 +1,65 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // Forzamos a que ocupe todo, eliminando la sensación de "container"
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  // Un color gris sólido y elegante para todo el fondo
+  background-color: #eeeeee;
+  z-index: 1000; // Asegura estar por encima de cualquier otro fondo
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px; // Aquí está el ancho que pediste, es cómodo para correos largos
+  padding: 32px;
+  border-radius: 16px; // Esquinas redondeadas profesionales
+  // Una sombra única, profunda y difuminada (estilo Neumorfismo suave)
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+  border: none;
+}
+
+mat-card-title {
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  color: #333;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+at-card-subtitle {
+  text-align: center;
+  margin-bottom: 32px !important;
+  font-size: 14px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-button {
+  width: 100%; // Botón ancho para seguir el estándar de apps móviles/modernas
+  height: 54px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+
+// Estilo para los iconos dentro del input
+mat-icon[matSuffix] {
+  color: #757575;
+}

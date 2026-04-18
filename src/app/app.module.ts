@@ -12,7 +12,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from "@angular/material/card";
-import { FormsModule } from '@angular/forms';
+import {MatIconModule} from "@angular/material/icon";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
@@ -22,6 +27,7 @@ import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component
 import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.component';
 import { LoginComponent } from './login/login.component';
 import {JwtInterceptor} from "./security/jwt.interceptor";
+
 
 
 
@@ -45,8 +51,14 @@ import {JwtInterceptor} from "./security/jwt.interceptor";
     MatButtonModule,
     MatSnackBarModule,
     MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatExpansionModule,
+    MatTooltipModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS,
