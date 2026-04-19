@@ -1,0 +1,87 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; // Esto bloquea cualquier scroll que intente salir del viewport
+}
+
+.drawer-container {
+  flex: 1; // IMPORTANTE: Esto obliga al contenedor a ocupar TODO el espacio sobrante debajo de la toolbar
+  display: flex; // Asegura que el layout interno sea flexible
+  overflow: hidden; // Bloquea scroll en el contenedor principal
+}
+
+// Forzamos al contenedor de contenido a no exceder el ancho visible
+mat-drawer-content {
+  display: block;
+  position: relative;
+  overflow-y: auto !important; // Permitimos scroll vertical solo aquí
+  overflow-x: hidden !important; // FORZAMOS la desaparición del scroll horizontal
+}
+
+// Eliminamos márgenes que Material a veces inyecta
+* {
+  box-sizing: border-box;
+}
+
+.spacer {
+  flex: 1 1 auto; // Empuja el botón de salir a la derecha
+}
+
+.sidenav {
+  width: 75px;
+  background-color: #fafafa;
+  border-right: 1px solid #eee;
+  overflow-x: hidden;
+
+  // Forzamos la altura y el centrado del ítem de lista
+  .mat-mdc-list-item { // Si usas Material 15+, es .mat-mdc-list-item
+    --mdc-list-list-item-container-height: 80px; // Variable oficial de Material 15+
+    padding: 0 !important;
+  }
+}
+
+.nav-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  mat-icon {
+    margin: 0 !important;
+  }
+
+  .nav-text {
+    font-size: 11px;
+    margin-top: 1px; // Espacio pequeño entre icono y texto
+    font-weight: 500;
+  }
+}
+
+.content {
+  padding: 20px;
+  background-color: #f5f5f5;
+  // Eliminamos cualquier posible desborde
+  box-sizing: border-box;
+  //overflow: auto; // Solo permite scroll vertical si el contenido es largo
+  width: 100%; // Asegura que el contenedor no supere el ancho disponible
+}
+
+.inner-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 80vh;
+  max-width: 100%; // No permite que el cuadro blanco se salga
+  box-sizing: border-box;
+}
+
+.active-link {
+  color: #3f51b5 !important;
+  background-color: rgba(63, 81, 181, 0.1) !important; // Un toque de color de fondo al estar activo
+  border-left: 4px solid #3f51b5; // Una línea sutil a la izquierda
+}

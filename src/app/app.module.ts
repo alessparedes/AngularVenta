@@ -11,14 +11,24 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { MatCardModule } from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component';
 import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.component';
+import { LoginComponent } from './login/login.component';
+import {JwtInterceptor} from "./security/jwt.interceptor";
+
+
 
 
 @NgModule({
@@ -27,6 +37,7 @@ import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.compon
     HomeComponent,
     ClienteComponent,
     DialogClienteComponent,
+    LoginComponent,
     DialogdeleteComponent
   ],
   imports: [
@@ -39,10 +50,21 @@ import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.compon
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatExpansionModule,
+    MatTooltipModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
