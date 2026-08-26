@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ApiclienteService } from '../services/apicliente.service';
 import { Response } from '../models/response';
 import { DialogClienteComponent } from './dialog/dialogcliente.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import {Cliente} from "../models/cliente";
 import {DialogdeleteComponent} from "../Common/dialogdelete/dialogdelete.component";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatLegacySnackBar as MatSnackBar} from "@angular/material/legacy-snack-bar";
 
 
 @Component({

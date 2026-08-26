@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatLegacyDialogRef as MatDialogRef} from "@angular/material/legacy-dialog";
+import {MatLegacySnackBar as MatSnackBar} from "@angular/material/legacy-snack-bar";
 import {FormBuilder, Validators} from "@angular/forms";
 import {ApiventaService} from "../../../services/apiventa.service";
 import {Venta} from "../../../models/venta";
