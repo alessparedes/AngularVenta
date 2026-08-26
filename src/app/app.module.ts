@@ -27,6 +27,8 @@ import { DialogClienteComponent } from './cliente/dialog/dialogcliente.component
 import { DialogdeleteComponent } from './Common/dialogdelete/dialogdelete.component';
 import { LoginComponent } from './login/login.component';
 import {JwtInterceptor} from "./security/jwt.interceptor";
+import { VentaComponent } from './venta/venta.component';
+import { DialogventaComponent } from './venta/dialog/dialogventa/dialogventa.component';
 
 
 
@@ -38,7 +40,9 @@ import {JwtInterceptor} from "./security/jwt.interceptor";
     ClienteComponent,
     DialogClienteComponent,
     LoginComponent,
-    DialogdeleteComponent
+    DialogdeleteComponent,
+    VentaComponent,
+    DialogventaComponent
   ],
   imports: [
     BrowserModule,

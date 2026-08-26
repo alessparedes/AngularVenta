@@ -1,1 +1,42 @@
-<p>dialogventa works!</p>
+<h1 mat-dialog-title>Nueva Venta</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Cliente</mat-label>
+    <input matInput [(ngModel)]="venta.idCliente" placeholder="Cliente">
+  </mat-form-field>
+  <form [formGroup]="conceptoForm" class="example-form" (ngSubmit)="addConcepto()">
+    <mat-form-field>
+      <mat-label>Producto</mat-label>
+      <input matInput type="text"  formControlName="idProducto" placeholder="Producto">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cantidad</mat-label>
+      <input matInput type="text" formControlName="cantidad" placeholder="Cantidad">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Importe</mat-label>
+      <input matInput type="text" formControlName="importe" placeholder="Importe">
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-raised-button type="submit" [disabled]="conceptoForm.invalid">+</button>
+    </div>
+  </form>
+  <br>
+  <div>
+    <h3>Conceptos</h3>
+    <table style="width: 100%">
+      <tr>
+        <th>Cantidad</th>
+        <th>Importe</th>
+      </tr>
+      <tr *ngFor="let item of conceptos">
+        <td style="text-align: center">{{item.cantidad}}</td>
+        <td style="text-align: center">{{item.importe}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="addVenta()">Guardar</button>
+</div>

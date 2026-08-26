@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {DialogventaComponent} from "./dialog/dialogventa/dialogventa.component";
 
 @Component({
   selector: 'app-venta',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./venta.component.scss']
 })
 export class VentaComponent implements OnInit {
+  public readonly width: string = '600';
+  public lst: any;
+  public columnas: string [] = ['producto', 'cantidad', 'importe'];
 
-  constructor() { }
+  constructor(public dialog: MatDialog,
+              public snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
+
+  openAdd(){
+    const dialogRef = this.dialog.open(DialogventaComponent, {
+      width: this.width,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  getVenta(){}
 
 }
